@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Bank {
     private int balance;
     private int previousTransaction;
-    private String customerName;
-    private String customerLastname;
-    private String customerMiddlename;
+    private final String customerName;
+    private final String customerLastname;
+    private final String customerMiddlename;
 
     Bank(String nameC, String middlenameC, String lastnameC, int balanceC){
         customerName = nameC;
-        customerLastname = middlenameC;
+        customerMiddlename = middlenameC;
         customerLastname = lastnameC;
         balance = balanceC;
 
@@ -40,8 +40,8 @@ public class Bank {
         char option = '\0';
         Scanner scanner = new Scanner (System.in);
 
-        System.out.println("*******WELCOME TO MELIKINHO'S BANK*******");
-        System.out.println("******* WELCOME ******* " + customerName + "" + customerMiddlename + "" + customerLastname);
+        System.out.println("********* WELCOME TO MELIKINHO'S BANK *********");
+        System.out.println("********* WELCOME *********" + customerName + "" + customerMiddlename + "" + customerLastname);
         System.out.println("\n");
         System.out.println("\n");
         System.out.println("A.) Check Balance");
@@ -62,6 +62,7 @@ public class Bank {
                     System.out.println("Balance: " + balance);
                     System.out.println("*********");
                     System.out.println("\n");
+                    break;
                 case 'B':
                     System.out.println("*********");
                     System.out.println("Enter an amount to deposit cash: ");
@@ -69,6 +70,25 @@ public class Bank {
                     int amount = scanner.nextInt ();
                     deposit(amount);
                     System.out.println("\n");
+                    break;
+                case 'C':
+                    System.out.println ("*********");
+                    System.out.println("Enter an amount to withdraw cash: ");
+                    int amountwithdraw = scanner.nextInt ();
+                    withdraw (amountwithdraw);
+                    System.out.println("\n");
+                    break;
+                case 'D':
+                    System.out.println("*********");
+                    getPreviousTransaction ();
+                    break;
+                case 'E':
+                    System.out.println("*********");
+                    break;
+                default:
+                    System.out.println("*********");
+                    System.out.println("Invaild option. Please choose A - E and try again!");
+                    break;
 
 
             }
